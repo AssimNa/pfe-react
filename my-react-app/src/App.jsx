@@ -21,7 +21,7 @@ const theme = createTheme({
 });
 
 const isAuthenticated = () => {
-  return true;
+  return localStorage.getItem('isAuthenticated') === 'true';
 };
 
 function App() {
