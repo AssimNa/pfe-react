@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from "react";
 import { useNavigate, Link as RouterLink } from 'react-router-dom';
 import { 
   Box,
@@ -39,6 +39,7 @@ const LoginPage = () => {
     email: '',
     password: ''
   });
+
   const navigate = useNavigate();
 
   const validateForm = () => {
@@ -67,7 +68,14 @@ const LoginPage = () => {
     setErrors(newErrors);
     return valid;
   };
-
+  
+  useEffect(() => {
+    const isAuthenticated = localStorage.getItem('isAuthenticated') === 'true';
+    if (isAuthenticated) {
+      navigate('/dashboard');
+    }
+  }, [navigate]);
+  
   const handleSubmit = (e) => {
     e.preventDefault();
     if (validateForm()) {

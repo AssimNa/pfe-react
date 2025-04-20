@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { CssBaseline, ThemeProvider } from '@mui/material';
 import { createTheme } from '@mui/material/styles';
 import Layout from './components/Layout';
@@ -7,6 +7,7 @@ import LoginPage from './pages/Login';
 import SignUpPage from './pages/SignUp';
 import DashboardPage from './pages/Dashboard';
 import NotFoundPage from './pages/NotFound';
+import Dashboard from './pages/Dashboard';
 
 const theme = createTheme({
   palette: {
@@ -20,7 +21,7 @@ const theme = createTheme({
 });
 
 const isAuthenticated = () => {
-  return localStorage.getItem('isAuthenticated') === 'true';
+  return true;
 };
 
 function App() {

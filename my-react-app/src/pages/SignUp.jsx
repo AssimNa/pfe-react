@@ -78,8 +78,8 @@ const SignUpPage = () => {
     <Container component="main" maxWidth="xs">
       <Box
         sx={{
-            width: '100%',  
-          marginTop: 8,
+          width: '100%',  
+          marginTop: 10,
           display: 'flex',
           flexDirection: 'column',
           alignItems: 'center',
