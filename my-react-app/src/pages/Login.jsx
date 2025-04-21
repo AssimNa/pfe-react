@@ -68,14 +68,16 @@ const LoginPage = () => {
     setErrors(newErrors);
     return valid;
   };
-  
+  const ProtectedRoute = ({ children }) => {
+  const isAuthenticated = localStorage.getItem('isAuthenticated') === 'true';
   useEffect(() => {
-    const isAuthenticated = localStorage.getItem('isAuthenticated') === 'true';
-    if (isAuthenticated) {
-      navigate('/dashboard');
+    
+    if (!isAuthenticated) {
+      navigate('/login');
     }
-  }, [navigate]);
-  
+  }, [isAuthenticated,navigate]);
+  return isAuthenticated ? children : null;
+  };
   const handleSubmit = (e) => {
     e.preventDefault();
     if (validateForm()) {
